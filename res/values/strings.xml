@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, MyTestT9Activity!</string>
-    <string name="app_name">MyTestT9</string>
-
+    <string name="hello">Hello World!</string>
+    <string name="app_name">速拨</string>
+	<string name="carol">carol</string>
 </resources>
