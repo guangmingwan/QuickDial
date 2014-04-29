@@ -146,19 +146,6 @@ public class HomeContactActivity extends Activity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	/**
 	 * 数据库异步查询类AsyncQueryHandler
 	 * 
@@ -186,6 +173,8 @@ public class HomeContactActivity extends Activity {
 					cursor.moveToPosition(i);
 					String name = cursor.getString(1);
 					String number = cursor.getString(2);
+					number = number.replace(" ", "");
+					
 					String sortKey = cursor.getString(3);
 					int contactId = cursor.getInt(4);
 					Long photoId = cursor.getLong(5);

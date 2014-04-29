@@ -10,13 +10,16 @@ import java.util.Map;
 import xu.ye.R;
 import xu.ye.application.MyApplication;
 import xu.ye.bean.CallLogBean;
+import xu.ye.bean.ContactBean;
 import xu.ye.view.adapter.HomeDialAdapter;
 import xu.ye.view.adapter.T9Adapter;
 import android.app.Activity;
 import android.content.AsyncQueryHandler;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -25,6 +28,7 @@ import android.os.Bundle;
 import android.provider.CallLog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -62,9 +66,38 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 	private ListView listView;
 	private T9Adapter t9Adapter;
 	
+	private Intent mIntent; 
+	private MsgReceiver msgReceiver; 
+	    
+	 /** 
+     * 广播接收器 
+     * @author len 
+     * 
+     */  
+    public class MsgReceiver extends BroadcastReceiver{  
+  
+        @Override  
+        public void onReceive(Context context, Intent intent) {  
+            //拿到进度，更新UI  
+            int progress = intent.getIntExtra("progress", 0);  
+            Log.i("*****refresh call log list******", ""+progress);
+            init();
+            
+        }  
+          
+    }  
+    
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		
+		//动态注册广播接收器  
+        msgReceiver = new MsgReceiver();  
+        IntentFilter intentFilter = new IntentFilter();  
+        intentFilter.addAction("com.adouming.refreshcalllog.RECEIVER");  
+        registerReceiver(msgReceiver, intentFilter); 
+        
+        
 		setContentView(R.layout.home_dial_page);
 		
 		application = (MyApplication)getApplication();
@@ -131,7 +164,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 						callLogList.setVisibility(View.INVISIBLE);
 						listView.setVisibility(View.VISIBLE);
 						t9Adapter.getFilter().filter(s);
-					}
+					} 
 				}
 			}
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -191,6 +224,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 					date = new Date(cursor.getLong(cursor.getColumnIndex(CallLog.Calls.DATE)));
 //					String date = cursor.getLong(cursor.getColumnIndex(CallLog.Calls.DATE));
 					String number = cursor.getString(cursor.getColumnIndex(CallLog.Calls.NUMBER));
+					
 					int type = cursor.getInt(cursor.getColumnIndex(CallLog.Calls.TYPE));
 					String cachedName = cursor.getString(cursor.getColumnIndex(CallLog.Calls.CACHED_NAME));//缓存的名称与电话号码，如果它的存在
 					int id = cursor.getInt(cursor.getColumnIndex(CallLog.Calls._ID));
@@ -365,6 +399,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 		Uri uri = Uri.parse("tel:" + phone);
 		Intent it = new Intent(Intent.ACTION_CALL, uri);
 		startActivity(it);
+		phone_view.setText("");
 	}
 	private void callpro(String phone) {
 		String encodedHash = Uri.encode("#");
@@ -372,6 +407,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 		Uri uri = Uri.parse("tel:" + phone);
 		Intent it = new Intent(Intent.ACTION_CALL, uri);
 		startActivity(it);
+		phone_view.setText("");
 	}
 
 	

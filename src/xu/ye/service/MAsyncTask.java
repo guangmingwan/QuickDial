@@ -46,6 +46,7 @@ public class MAsyncTask extends AsyncTask<Cursor, Void, ArrayList<ContactBean>>{
 					cursor.moveToPosition(i);
 					String name = cursor.getString(1);
 					String number = cursor.getString(2);
+					number = number.replace(" ", "");
 					int contactId = cursor.getInt(4);
 					ContactBean contactInfo = new ContactBean();
 					contactInfo.setContactId(contactId);
