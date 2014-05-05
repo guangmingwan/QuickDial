@@ -4,6 +4,7 @@ import java.util.List;
 
 import xu.ye.R;
 import xu.ye.bean.CallLogBean;
+import xu.ye.view.HomeDialActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,7 +21,7 @@ public class HomeDialAdapter extends BaseAdapter {
 	private Context ctx;
 	private List<CallLogBean> list;
 	private LayoutInflater inflater;
-	
+	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
 	public HomeDialAdapter(Context context, List<CallLogBean> list) {
 
 		this.ctx = context;
@@ -87,9 +88,16 @@ public class HomeDialAdapter extends BaseAdapter {
 	private void addViewListener(View view, final CallLogBean clb, final int position){
 		view.setOnClickListener(new OnClickListener(){
 			public void onClick(View view) {
-				Uri uri = Uri.parse("tel:" + clb.getNumber());
-				Intent it = new Intent(Intent.ACTION_CALL, uri);
-				ctx.startActivity(it);
+//				Uri uri = Uri.parse("tel:" + clb.getNumber());
+//				Intent it = new Intent(Intent.ACTION_CALL, uri);
+//				ctx.startActivity(it);
+				
+				//发送Action广播  
+		        intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REDIAL);
+		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, clb.getNumber());
+		        
+		        ctx.sendBroadcast(intent); 
+		        
 			}
 		});
 	}

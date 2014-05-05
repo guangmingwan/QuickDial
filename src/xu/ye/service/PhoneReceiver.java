@@ -88,7 +88,10 @@ public class PhoneReceiver extends BroadcastReceiver {
              	newPhoneNumber = temp[1].trim();
              	newPhoneNumber = newPhoneNumber.replace("#", "");
              }
-             
+             else
+             {
+            	 return ;
+             }
              
         	String id  = managedCursor.getString(cid); 
         	String cached_name  = this.getContactName(mContext, newPhoneNumber);
@@ -116,7 +119,8 @@ public class PhoneReceiver extends BroadcastReceiver {
         }
         managedCursor.close();
       //发送Action广播  
-        intent.putExtra("progress", 1);
+        intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REFRESH_CALLLOG);
+        intent.putExtra(HomeDialActivity.BR_PAYLOAD, 1);
         mContext.sendBroadcast(intent);  
     }
     public static String getContactName(Context context, String phoneNumber) {
