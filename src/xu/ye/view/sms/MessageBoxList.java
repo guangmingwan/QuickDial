@@ -3,15 +3,25 @@ package xu.ye.view.sms;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import xu.ye.R;
+import xu.ye.bean.ContactBean;
 import xu.ye.bean.MessageBean;
+import xu.ye.uitl.BaseIntentUtil;
+import xu.ye.view.HomeContactActivity;
+import xu.ye.view.HomeDialActivity;
 import xu.ye.view.adapter.MessageBoxListAdapter;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -36,7 +46,7 @@ public class MessageBoxList extends Activity {
 	private SimpleDateFormat sdf;
 	private AsyncQueryHandler asyncQuery;
 	private String address;
-	
+	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
 	public void onCreate(Bundle savedInstanceState){
 
 		super.onCreate(savedInstanceState);
@@ -64,9 +74,8 @@ public class MessageBoxList extends Activity {
 		});
 		btn_call.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Uri uri = Uri.parse("tel:" + address);
-				Intent it = new Intent(Intent.ACTION_CALL, uri);
-				startActivity(it);
+
+				showContactDialog(lianxiren1, address);
 			}
 		});
 		fasong.setOnClickListener(new OnClickListener() {
@@ -81,7 +90,35 @@ public class MessageBoxList extends Activity {
 			}
 		});
 	}
-	
+	private String[] lianxiren1 = new String[] { "使用“快拨”通话", "直接拨打电话" };
+	//群组联系人弹出页
+	private void showContactDialog(final String[] arg ,final String phoneNum){
+		new AlertDialog.Builder(this).setTitle(address).setItems(arg,
+				new DialogInterface.OnClickListener(){
+			public void onClick(DialogInterface dialog, int which){
+
+				Uri uri = null;
+				Context ctx = getApplicationContext();
+				switch(which){
+				case 0://快拨模式打电话
+					String toProPhone = address;
+					intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_PRO);
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toProPhone);
+    		        
+    		        ctx.sendBroadcast(intent);
+    		        
+					break;
+				case 1://直接打电话
+						String toNormalPhone = address;
+						intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+	    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toNormalPhone); 
+	    		        ctx.sendBroadcast(intent);
+						break;
+ 
+				}
+			}
+		}).show();
+	}
 	private void init(String thread){
 		
 		asyncQuery = new MyAsyncQueryHandler(getContentResolver());

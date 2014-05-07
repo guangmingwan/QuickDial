@@ -88,12 +88,9 @@ public class HomeDialAdapter extends BaseAdapter {
 	private void addViewListener(View view, final CallLogBean clb, final int position){
 		view.setOnClickListener(new OnClickListener(){
 			public void onClick(View view) {
-//				Uri uri = Uri.parse("tel:" + clb.getNumber());
-//				Intent it = new Intent(Intent.ACTION_CALL, uri);
-//				ctx.startActivity(it);
-				
+
 				//发送Action广播  
-		        intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REDIAL);
+		        intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REDIAL_PREDIAL);
 		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, clb.getNumber());
 		        
 		        ctx.sendBroadcast(intent); 

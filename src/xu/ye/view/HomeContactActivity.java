@@ -66,7 +66,7 @@ public class HomeContactActivity extends Activity {
 
 	private Map<Integer, ContactBean> contactIdMap = null;
 	
-
+	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -226,7 +226,7 @@ public class HomeContactActivity extends Activity {
 	}
 
 
-	private String[] lianxiren1 = new String[] { "拨打电话", "发送短信", "查看详细","移动分组","移出群组","删除" };
+	private String[] lianxiren1 = new String[] { "使用“快拨”通话", "直接拨打电话", "发送短信", "查看详细","移动分组","移出群组","删除" };
 
 	//群组联系人弹出页
 	private void showContactDialog(final String[] arg ,final ContactBean cb, final int position){
@@ -235,17 +235,24 @@ public class HomeContactActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which){
 
 				Uri uri = null;
-
+				Context ctx = getApplicationContext();
 				switch(which){
-
-				case 0://打电话
-					String toPhone = cb.getPhoneNum();
-					uri = Uri.parse("tel:" + toPhone);
-					Intent it = new Intent(Intent.ACTION_CALL, uri);
-					startActivity(it);
+				case 0://快拨模式打电话
+					String toProPhone = cb.getPhoneNum();
+					intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_PRO);
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toProPhone);
+    		        
+    		        ctx.sendBroadcast(intent);
+    		        
+					break;
+				case 1://直接打电话
+					String toNormalPhone = cb.getPhoneNum();
+					intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toNormalPhone); 
+    		        ctx.sendBroadcast(intent);
 					break;
 
-				case 1://发短息
+				case 2://发短息
 
 					String threadId = getSMSThreadId(cb.getPhoneNum());
 					
@@ -255,7 +262,7 @@ public class HomeContactActivity extends Activity {
 					BaseIntentUtil.intentSysDefault(HomeContactActivity.this, MessageBoxList.class, map);
 					break;
 
-				case 2:// 查看详细       修改联系人资料
+				case 3:// 查看详细       修改联系人资料
 
 					uri = ContactsContract.Contacts.CONTENT_URI;
 					Uri personUri = ContentUris.withAppendedId(uri, cb.getContactId());
@@ -265,7 +272,7 @@ public class HomeContactActivity extends Activity {
 					startActivity(intent2);
 					break;
 
-				case 3:// 移动分组
+				case 4:// 移动分组
 
 					//					Intent intent3 = null;
 					//					intent3 = new Intent();
@@ -276,12 +283,12 @@ public class HomeContactActivity extends Activity {
 					//					ContactHome.this.startActivity(intent3);
 					break;
 
-				case 4:// 移出群组
+				case 5:// 移出群组
 
 					//					moveOutGroup(getRaw_contact_id(contactsID),Integer.parseInt(qzID));
 					break;
 
-				case 5:// 删除
+				case 6:// 删除
 
 					showDelete(cb.getContactId(), position);
 					break;

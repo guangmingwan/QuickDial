@@ -62,6 +62,10 @@ public class PhoneReceiver extends BroadcastReceiver {
                 if(outgoingNumber.length()>0) {
                 	this.retriveLastCallSummary();
                 }
+                else
+                {
+                	
+                }
                 break;
             
 	        }
@@ -90,7 +94,9 @@ public class PhoneReceiver extends BroadcastReceiver {
              }
              else
              {
-            	 return ;
+            	 //this.delayRefreshCallLog();
+            	 //return ;
+            	 newPhoneNumber = outgoingNumber;
              }
              
         	String id  = managedCursor.getString(cid); 
@@ -118,10 +124,28 @@ public class PhoneReceiver extends BroadcastReceiver {
 			incomingNumber = "";
         }
         managedCursor.close();
-      //发送Action广播  
+        this.delayRefreshCallLog();
+    }
+    private void refreshcalllog()
+    {
+    	//发送Action广播  
         intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REFRESH_CALLLOG);
         intent.putExtra(HomeDialActivity.BR_PAYLOAD, 1);
         mContext.sendBroadcast(intent);  
+    }
+    private void delayRefreshCallLog()
+    {
+    	new Thread(new Runnable(){    
+    		     public void run(){    
+    		         try {
+						Thread.sleep(50);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}    
+    		        refreshcalllog();    
+    		     }    
+    		 }).start(); 
     }
     public static String getContactName(Context context, String phoneNumber) {
         ContentResolver cr = context.getContentResolver();

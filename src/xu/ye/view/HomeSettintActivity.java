@@ -6,6 +6,8 @@ import java.util.HashMap;
 import xu.ye.R;
 import xu.ye.uitl.SettingSingleTon;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +21,7 @@ public class HomeSettintActivity extends Activity {
 	
 public ListView listview;	
  	public static String TAG = "homesetting";
+ 	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -36,10 +39,21 @@ public ListView listview;
             public void onItemClick(AdapterView<?> arg0, View view,
                     int position, long id) {
                 // TODO Auto-generated method stub
-                Object o = listview.getItemAtPosition(position);
-                String pen = o.toString();
-                Toast.makeText(getApplicationContext(), "You have chosen the pen: " + " " + pen, Toast.LENGTH_LONG).show();
-
+                //Object o = listview.getItemAtPosition(position);
+                //String pen = o.toString();
+                //Toast.makeText(getApplicationContext(), "You have chosen the pen: " + " " + pen, Toast.LENGTH_LONG).show();
+                if(position == 1) { //call 客服
+                	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, "10000");
+    		        Context ctx = getApplicationContext();
+    		        ctx.sendBroadcast(intent);
+                }
+                else if(position == 2) { //查话费
+                	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, "10010");
+    		        Context ctx = getApplicationContext();
+    		        ctx.sendBroadcast(intent);
+                }
             }
   
         }       
@@ -104,13 +118,13 @@ public ListView listview;
             tempHashMap = new HashMap<String, Object>(); 
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "客服电话");  
-            tempHashMap.put("info", "一键拨打客服电话");  
+            tempHashMap.put("info", "一键拨打客服电话 10000");  
             arrayList.add(tempHashMap);
             
             tempHashMap = new HashMap<String, Object>();  
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "查话费");  
-            tempHashMap.put("info", "一键查话费");  
+            tempHashMap.put("info", "一键拨打查话费电话 10010");  
             arrayList.add(tempHashMap); 
             
 	        

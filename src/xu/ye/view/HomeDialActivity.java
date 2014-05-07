@@ -76,7 +76,9 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 	public static String BR_ACION = "action";
 	public static String BR_PAYLOAD = "payload";
 	public static String BR_REFRESH_CALLLOG = "refreshcalllist";
-	public static String BR_REDIAL = "redial";
+	public static String BR_REDIAL_PREDIAL = "redial";
+	public static String BR_DIAL_NORMAL = "dialnormal";
+	public static String BR_DIAL_PRO = "dialpro";
 	 /** 
      * 广播接收器 
      * @author len 
@@ -93,11 +95,19 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 	            Log.i("*****refresh call log list******", ""+payload);
 	            init();
         	}
-        	else if(action.equals(BR_REDIAL)) {
+        	else if(action.equals(BR_REDIAL_PREDIAL)) {
         		String redialNumber = intent.getStringExtra(BR_PAYLOAD);
         		phone_view.setText(redialNumber);
         		bohaopan.setVisibility(View.VISIBLE);
     			keyboard_show_ll.setVisibility(View.INVISIBLE);
+        	}
+        	else if(action.equals(BR_DIAL_NORMAL)) {
+        		String dialNumber = intent.getStringExtra(BR_PAYLOAD);
+        		call( dialNumber );
+        	}
+        	else if(action.equals(BR_DIAL_PRO)) {
+        		String dialNumber = intent.getStringExtra(BR_PAYLOAD);
+        		callpro( dialNumber );
         	}
             
         }  

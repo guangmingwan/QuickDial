@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xu.ye.R;
+import xu.ye.bean.CallLogBean;
 import xu.ye.bean.ContactBean;
+import xu.ye.view.HomeDialActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -23,7 +27,7 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 	private List<ContactBean> allContactList;
 	private Context context;
 	private String filterNum;
-
+	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
 	public T9Adapter(Context context) {     
 		mInflater = LayoutInflater.from(context); 
 		this.list = new ArrayList<ContactBean>();
@@ -90,9 +94,22 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 		}
 
 		convertView.setTag(holder);
+		addViewListener(convertView , (String)list.get(position).getPhoneNum(), position);
 		return convertView;
 	}   
+	private void addViewListener(View view, final String phoneNum, final int position){
+		view.setOnClickListener(new OnClickListener(){
+			public void onClick(View view) {
 
+				//发送Action广播  
+		        intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_REDIAL_PREDIAL);
+		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, phoneNum );
+		        
+		        context.sendBroadcast(intent); 
+		        
+			}
+		});
+	}
 	public final class ViewHolder {   
 		public TextView name;        
 		public TextView pinyin;        
