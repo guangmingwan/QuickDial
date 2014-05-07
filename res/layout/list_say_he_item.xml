@@ -18,7 +18,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
-        <xu.ye.view.ui.CustomTextView
+        <com.adouming.view.ui.CustomTextView
             android:id="@+id/messagedetail_row_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

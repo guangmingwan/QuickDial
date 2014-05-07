@@ -27,7 +27,7 @@
             android:background="@drawable/add_contact" />
     </RelativeLayout>
 
-    <xu.ye.view.ui.SlidingLinearLayout
+    <com.adouming.view.ui.SlidingLinearLayout
         android:id="@+id/slidingid"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -43,9 +43,9 @@
             android:scrollbars="none"
             android:scrollingCache="false"
             android:visibility="visible" />
-    </xu.ye.view.ui.SlidingLinearLayout>
+    </com.adouming.view.ui.SlidingLinearLayout>
 
-    <xu.ye.view.ui.QuickAlphabeticBar
+    <com.adouming.view.ui.QuickAlphabeticBar
         android:id="@+id/fast_scroller"
         android:layout_width="22dp"
         android:layout_height="fill_parent"

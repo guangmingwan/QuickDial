@@ -1,4 +1,4 @@
-<xu.ye.view.ui.AnimationTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<com.adouming.view.ui.AnimationTabHost xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -39,4 +39,4 @@
         </RelativeLayout>
     </LinearLayout>
 
-</xu.ye.view.ui.AnimationTabHost>
+</com.adouming.view.ui.AnimationTabHost>

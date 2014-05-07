@@ -42,7 +42,7 @@
         android:scrollbars="none"
         android:soundEffectsEnabled="true" />
 
-    <xu.ye.view.ui.QuickAlphabeticBar
+    <com.adouming.view.ui.QuickAlphabeticBar
         android:id="@+id/fast_scroller"
         android:layout_width="22dp"
         android:layout_height="fill_parent"

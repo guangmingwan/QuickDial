@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xu.ye"
+    package="com.adouming.quickdial"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -26,18 +26,18 @@
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"></uses-permission>
 
     <application
-        android:name="xu.ye.application.MyApplication"
+        android:name="com.adouming.application.MyApplication"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
-        <receiver android:name=".service.PhoneReceiver">
+        <receiver android:name="com.adouming.service.PhoneReceiver">
       	<intent-filter>
       		<action android:name="android.intent.action.PHONE_STATE"/>
 			<action android:name="android.intent.action.NEW_OUTGOING_CALL" />
       	</intent-filter>
     	</receiver>
         <activity
-            android:name="xu.ye.view.HomeTabHostAcitivity"
+            android:name="com.adouming.view.HomeTabHostAcitivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
@@ -48,42 +48,42 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="xu.ye.view.HomeDialActivity"
+            android:name="com.adouming.view.HomeDialActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>
         <activity
-            android:name="xu.ye.view.HomeContactActivity"
+            android:name="com.adouming.view.HomeContactActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>
         <activity
-            android:name="xu.ye.view.HomeSMSActivity"
+            android:name="com.adouming.view.HomeSMSActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>
         <activity
-            android:name="xu.ye.view.HomeSettintActivity"
+            android:name="com.adouming.view.HomeSettintActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>
         <activity
-            android:name=".view.sms.MessageBoxList"
+            android:name="com.adouming.view.sms.MessageBoxList"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" >
         </activity>
         <activity
-            android:name="xu.ye.view.sms.NewSMSActivity"
+            android:name="com.adouming.view.sms.NewSMSActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize" >
         </activity>
         <activity
-            android:name="xu.ye.view.sms.SelectContactsToSendActivity"
+            android:name="com.adouming.view.sms.SelectContactsToSendActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan" >
         </activity>
         <service
-            android:name="xu.ye.service.T9Service" />
+            android:name="com.adouming.service.T9Service" />
     </application>
 
 </manifest>

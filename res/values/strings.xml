@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World!</string>
-    <string name="app_name">速拨</string>
+    <string name="app_name">快拨</string>
 	<string name="carol">carol</string>
 	
 	<string name="music_title">拨打客户电话</string>
