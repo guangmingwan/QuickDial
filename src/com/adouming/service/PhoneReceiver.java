@@ -1,6 +1,9 @@
 package com.adouming.service;
 
+import com.adouming.uitl.SettingSingleTon;
 import com.adouming.view.HomeDialActivity;
+import com.adouming.view.HomeSettintActivity;
+
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -88,7 +91,13 @@ public class PhoneReceiver extends BroadcastReceiver {
         	 String [] temp = null;  
              temp = outgoingNumber.split(",");
              String newPhoneNumber = "";
-             if(temp.length>1) {
+             SettingSingleTon setting = SettingSingleTon.getInstance( mContext );
+   		  	 String callinnumber = setting.getValue(SettingSingleTon.CALLIN_NUMBER);
+			  if(callinnumber.length()<=0) {
+			  	callinnumber =  HomeSettintActivity.TEL_CALLIN;
+			  }
+			 
+             if(temp.length>1 && outgoingNumber.indexOf(callinnumber) >=0) {
              	newPhoneNumber = temp[1].trim();
              	newPhoneNumber = newPhoneNumber.replace("#", "");
              }

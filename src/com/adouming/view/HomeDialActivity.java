@@ -496,6 +496,8 @@ public class HomeDialActivity extends Activity implements OnClickListener {
  
 	
 	private void call(String phone) {
+//		String pauseCode = Uri.encode("p");
+//		phone = phone.replace("p",pauseCode);
 		Uri uri = Uri.parse("tel:" + phone);
 		Intent it = new Intent(Intent.ACTION_CALL, uri);
 		startActivity(it);
@@ -506,8 +508,9 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 		SettingSingleTon setting = SettingSingleTon.getInstance(getApplicationContext());
 		String 	callinnumber =	setting.getValue(SettingSingleTon.CALLIN_NUMBER);
 		if(callinnumber.length() <=0 ) {
-			Toast.makeText(getApplicationContext(), "还没有设置接入号",3).show();
-			return;
+			callinnumber = HomeSettintActivity.TEL_CALLIN;
+			//Toast.makeText(getApplicationContext(), "还没有设置接入号",3).show();
+			//return;
 		}
 		
 		

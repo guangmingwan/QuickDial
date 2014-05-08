@@ -22,6 +22,9 @@ public class HomeSettintActivity extends Activity {
 public ListView listview;	
  	public static String TAG = "homesetting";
  	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
+ 	public static String TEL_CALLIN = "844604";
+ 	public static String TEL_CUSTOMSERVICE = "18613016788";
+ 	public static String TEL_ACCOUNTCHECK = "66680123,2";
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -44,13 +47,13 @@ public ListView listview;
                 //Toast.makeText(getApplicationContext(), "You have chosen the pen: " + " " + pen, Toast.LENGTH_LONG).show();
                 if(position == 1) { //call 客服
                 	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
-    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, "10000");
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, TEL_CUSTOMSERVICE);
     		        Context ctx = getApplicationContext();
     		        ctx.sendBroadcast(intent);
                 }
                 else if(position == 2) { //查话费
                 	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
-    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, "10010");
+    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, TEL_ACCOUNTCHECK);
     		        Context ctx = getApplicationContext();
     		        ctx.sendBroadcast(intent);
                 }
@@ -107,24 +110,22 @@ public ListView listview;
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "接入号码");
             if(callinnumber.length()<=0) {
-            	tempHashMap.put("info", "还未设置接入号码");
+            	callinnumber = TEL_CALLIN;
             }
-            else
-            {
-            	tempHashMap.put("info", "当前接入号码:" + callinnumber);
-            }
+            tempHashMap.put("info", "当前接入号码:" + callinnumber);
+            
             arrayList.add(tempHashMap);
             
             tempHashMap = new HashMap<String, Object>(); 
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "客服电话");  
-            tempHashMap.put("info", "一键拨打客服电话 10000");  
+            tempHashMap.put("info", "一键拨打客服电话 " + TEL_CUSTOMSERVICE);  
             arrayList.add(tempHashMap);
             
             tempHashMap = new HashMap<String, Object>();  
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "查话费");  
-            tempHashMap.put("info", "一键拨打查话费电话 10010");  
+            tempHashMap.put("info", "一键拨打查话费电话 " + TEL_ACCOUNTCHECK);  
             arrayList.add(tempHashMap); 
             
 	        
