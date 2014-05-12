@@ -25,9 +25,10 @@ public class HomeSettintActivity extends Activity {
 public ListView listview;	
  	public static String TAG = "homesetting";
  	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
- 	public static String TEL_CALLIN = "844604";
+ 	public static String TEL_CALLIN = "844002";
  	public static String TEL_CUSTOMSERVICE = "18613016788";
- 	public static String TEL_ACCOUNTCHECK = "66680123";
+ 	public static String TEL_ACCOUNTCHECK = "62358333";
+ 	public static String PLATFORM_NAME = "平台1";
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -134,7 +135,7 @@ public ListView listview;
             tempHashMap = new HashMap<String, Object>();  
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "版本号");  
-            tempHashMap.put("info", this.getAppVersionName()); 
+            tempHashMap.put("info", this.getAppVersionName() + " - " + PLATFORM_NAME); 
             
             
             arrayList.add(tempHashMap); 
