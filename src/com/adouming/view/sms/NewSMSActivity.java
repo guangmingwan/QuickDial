@@ -12,8 +12,11 @@ import com.adouming.uitl.BaseIntentUtil;
 import com.adouming.view.adapter.NewSmsAdapter;
 import com.adouming.view.ui.MyViewGroup;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
@@ -411,7 +414,25 @@ public class NewSMSActivity extends Activity {
 			}
 		}
 	}
+	private void showSelectPhoneNum(final ContactBean cb, final int position)
+	{
+		phoneNumbs = (String[])cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]);
+		new AlertDialog.Builder(this).setTitle(cb.getDisplayName()).setItems(
+				phoneNumbs,
+				new DialogInterface.OnClickListener(){
+			public void onClick(DialogInterface dialog, int which){
 
+				Uri uri = null;
+				Context ctx = getApplicationContext();
+				String[] phones =  (String[])cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]);
+				etMess.setText(cb.getDisplayName());
+				createView1(etMess.getText().toString().trim(), phones[which]);
+				etMess.setText("");
+				//showContactDialog(lianxiren1, cb, position, which);
+			}
+		}).show();
+	}
+	private String[] phoneNumbs;
 	private void setAdapter(List<ContactBean> list) {
 		adapter = new NewSmsAdapter(this);
 		adapter.assignment(list);
@@ -431,9 +452,8 @@ public class NewSMSActivity extends Activity {
 					}
 				}
 				if(b){
-					etMess.setText(cb.getDisplayName());
-					createView1(etMess.getText().toString().trim(), cb.getPhoneNum());
-					etMess.setText("");
+					
+					showSelectPhoneNum(cb, position);
 				}else{
 					queryListView.setVisibility(View.INVISIBLE);
 					etMess.setText("");

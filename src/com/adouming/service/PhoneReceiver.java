@@ -35,8 +35,10 @@ public class PhoneReceiver extends BroadcastReceiver {
         // call state when outgoing (去電撥出狀態)
         if(intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {
             // get the number of outgoing (獲得撥出號碼)
-        	outgoingNumber = this.getResultData();
-            Log.i("TAG", "new outgoing number" + outgoingNumber);
+        	if(this.getResultData() != null) {
+        		outgoingNumber = this.getResultData();
+        	}
+            Log.i("TAG", "new outgoing number:" + outgoingNumber);
             
         }else {
             // get call state when state changed

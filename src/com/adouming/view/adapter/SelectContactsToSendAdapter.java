@@ -105,7 +105,7 @@ public class SelectContactsToSendAdapter extends BaseAdapter {
 		
 		ContactBean cb = list.get(position);
 		String name = cb.getDisplayName();
-		String number = cb.getPhoneNum();
+		String number =(String) cb.getPhoneNum().get(0);
 		holder.name.setText(name);
 		holder.number.setText(number);
 		holder.qcb.assignContactUri(Contacts.getLookupUri(cb.getContactId(), cb.getLookUpKey()));

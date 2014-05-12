@@ -59,7 +59,7 @@ public class NewSmsAdapter extends BaseAdapter implements Filterable {
 		}
 		
 		holder.name.setText(list.get(position).getDisplayName());
-		holder.number.setText(list.get(position).getPhoneNum());
+		holder.number.setText((String)list.get(position).getPhoneNum().get(0));
 
 		convertView.setTag(holder);
 		return convertView;

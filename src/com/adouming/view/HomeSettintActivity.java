@@ -8,7 +8,10 @@ import com.adouming.uitl.SettingSingleTon;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,7 +27,7 @@ public ListView listview;
  	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
  	public static String TEL_CALLIN = "844604";
  	public static String TEL_CUSTOMSERVICE = "18613016788";
- 	public static String TEL_ACCOUNTCHECK = "66680123,2";
+ 	public static String TEL_ACCOUNTCHECK = "66680123";
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -52,7 +55,7 @@ public ListView listview;
     		        ctx.sendBroadcast(intent);
                 }
                 else if(position == 2) { //查话费
-                	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+                	intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_PRO);
     		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, TEL_ACCOUNTCHECK);
     		        Context ctx = getApplicationContext();
     		        ctx.sendBroadcast(intent);
@@ -125,7 +128,15 @@ public ListView listview;
             tempHashMap = new HashMap<String, Object>();  
             tempHashMap.put("image", R.drawable.icon);  
             tempHashMap.put("title", "查话费");  
-            tempHashMap.put("info", "一键拨打查话费电话 " + TEL_ACCOUNTCHECK);  
+            tempHashMap.put("info", "一键拨打查话费电话 " + TEL_ACCOUNTCHECK); 
+            arrayList.add(tempHashMap);
+            
+            tempHashMap = new HashMap<String, Object>();  
+            tempHashMap.put("image", R.drawable.icon);  
+            tempHashMap.put("title", "版本号");  
+            tempHashMap.put("info", this.getAppVersionName()); 
+            
+            
             arrayList.add(tempHashMap); 
             
 	        
@@ -133,7 +144,23 @@ public ListView listview;
 	    } 
 	
 	   
-	
+	//获取当前版本号
+	  private String getAppVersionName() {
+	  String versionName = "";
+	  Context context = getApplicationContext();
+	  try {
+	  PackageManager packageManager = context.getPackageManager();
+	  PackageInfo packageInfo = packageManager.getPackageInfo("com.adouming.quickdial", 0);
+	  versionName = packageInfo.versionName;
+	  if (TextUtils.isEmpty(versionName)) {
+	  return "";
+	  }
+	  } catch (Exception e) {
+	  e.printStackTrace();
+	  }
+	  return versionName;
+	  }
+	  	
 	
 	
 }

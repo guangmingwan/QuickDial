@@ -43,7 +43,9 @@
         android:layout_marginLeft="5.0dip"
         android:layout_toRightOf="@+id/qcb"
         android:layout_alignParentBottom="true"
-        android:singleLine="true"
+        android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:ellipsize="none"
         android:textAppearance="?android:textAppearanceSmall" />
 
 </RelativeLayout>

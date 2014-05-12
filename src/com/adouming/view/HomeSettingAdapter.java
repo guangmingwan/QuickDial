@@ -90,6 +90,9 @@ public class HomeSettingAdapter extends BaseAdapter {
       case 2:
     	  zuJian.imageView.setBackgroundResource(R.drawable.account_query); 
     	  break;
+      case 3:
+    	  zuJian.imageView.setBackgroundResource(R.drawable.version);
+    	  break;
       }
        
       zuJian.titleView.setText((String)data.get(position).get("title"));  

@@ -1,0 +1,332 @@
+com.adouming.application.MyApplication
+com.adouming.application.MyApplication: MyApplication()
+com.adouming.quickdial.R$anim: int push_in
+com.adouming.quickdial.R$anim: int push_out
+com.adouming.quickdial.R$color: int Silver
+com.adouming.quickdial.R$color: int TextColorBlack
+com.adouming.quickdial.R$color: int TextColorBlue
+com.adouming.quickdial.R$color: int TextColorBlue1
+com.adouming.quickdial.R$color: int TextColorGray
+com.adouming.quickdial.R$color: int TextColorGreen
+com.adouming.quickdial.R$color: int TextColorGreen1
+com.adouming.quickdial.R$color: int TextColorRed
+com.adouming.quickdial.R$color: int TextColorRed1
+com.adouming.quickdial.R$color: int TextColorYellow1
+com.adouming.quickdial.R$color: int background_color
+com.adouming.quickdial.R$color: int black
+com.adouming.quickdial.R$color: int blue
+com.adouming.quickdial.R$color: int border_line
+com.adouming.quickdial.R$color: int button_selected
+com.adouming.quickdial.R$color: int button_unselected
+com.adouming.quickdial.R$color: int gray
+com.adouming.quickdial.R$color: int gray_bold
+com.adouming.quickdial.R$color: int info_panel_bg
+com.adouming.quickdial.R$color: int movie_name
+com.adouming.quickdial.R$color: int noread
+com.adouming.quickdial.R$color: int orangered
+com.adouming.quickdial.R$color: int readed
+com.adouming.quickdial.R$color: int red
+com.adouming.quickdial.R$color: int title_bg
+com.adouming.quickdial.R$color: int traffic_bg
+com.adouming.quickdial.R$color: int traffic_data
+com.adouming.quickdial.R$color: int traffic_txt
+com.adouming.quickdial.R$color: int transparent
+com.adouming.quickdial.R$color: int transparent01
+com.adouming.quickdial.R$color: int white
+com.adouming.quickdial.R$color: int window_bg
+com.adouming.quickdial.R$color: int yello
+com.adouming.quickdial.R$color: int zzblack
+com.adouming.quickdial.R$color: int zzblue
+com.adouming.quickdial.R$color: int zzyellow
+com.adouming.quickdial.R$drawable: int a_z
+com.adouming.quickdial.R$drawable: int a_z_click
+com.adouming.quickdial.R$drawable: int account_query
+com.adouming.quickdial.R$drawable: int add_contact
+com.adouming.quickdial.R$drawable: int add_group_bg
+com.adouming.quickdial.R$drawable: int add_group_bg_normal
+com.adouming.quickdial.R$drawable: int add_group_bg_pressed
+com.adouming.quickdial.R$drawable: int answernum
+com.adouming.quickdial.R$drawable: int answerphone
+com.adouming.quickdial.R$drawable: int bg_sms_contact_btn
+com.adouming.quickdial.R$drawable: int bg_sms_input
+com.adouming.quickdial.R$drawable: int bg_sms_normal
+com.adouming.quickdial.R$drawable: int bg_sms_pressed
+com.adouming.quickdial.R$drawable: int bg_sms_send_normal
+com.adouming.quickdial.R$drawable: int bg_sms_send_pressed
+com.adouming.quickdial.R$drawable: int bg_tab_dial_pressed_up
+com.adouming.quickdial.R$drawable: int black_bg
+com.adouming.quickdial.R$drawable: int btn_call
+com.adouming.quickdial.R$drawable: int btn_more
+com.adouming.quickdial.R$drawable: int btn_return
+com.adouming.quickdial.R$drawable: int button_blue
+com.adouming.quickdial.R$drawable: int call_log_type_in
+com.adouming.quickdial.R$drawable: int call_log_type_miss
+com.adouming.quickdial.R$drawable: int call_log_type_out
+com.adouming.quickdial.R$drawable: int create_new_group
+com.adouming.quickdial.R$drawable: int dial_call
+com.adouming.quickdial.R$drawable: int dial_callpro
+com.adouming.quickdial.R$drawable: int dial_delete
+com.adouming.quickdial.R$drawable: int dial_delete1
+com.adouming.quickdial.R$drawable: int dial_delete2
+com.adouming.quickdial.R$drawable: int dial_delete3
+com.adouming.quickdial.R$drawable: int dial_input
+com.adouming.quickdial.R$drawable: int dial_input_bg
+com.adouming.quickdial.R$drawable: int dial_input_bg2
+com.adouming.quickdial.R$drawable: int dial_input_btn
+com.adouming.quickdial.R$drawable: int dial_input_pressed
+com.adouming.quickdial.R$drawable: int dialj_ic
+com.adouming.quickdial.R$drawable: int dialj_ic1
+com.adouming.quickdial.R$drawable: int dialj_ic2
+com.adouming.quickdial.R$drawable: int dialx_ic
+com.adouming.quickdial.R$drawable: int dialx_ic1
+com.adouming.quickdial.R$drawable: int dialx_ic2
+com.adouming.quickdial.R$drawable: int dic_background
+com.adouming.quickdial.R$drawable: int ic_calllog_call_active
+com.adouming.quickdial.R$drawable: int ic_calllog_call_btn
+com.adouming.quickdial.R$drawable: int ic_calllog_call_normal
+com.adouming.quickdial.R$drawable: int ic_calllog_incomming_active
+com.adouming.quickdial.R$drawable: int ic_calllog_incomming_normal
+com.adouming.quickdial.R$drawable: int ic_calllog_missed_normal
+com.adouming.quickdial.R$drawable: int ic_calllog_missed_voip_pre
+com.adouming.quickdial.R$drawable: int ic_calllog_outgoing_active
+com.adouming.quickdial.R$drawable: int ic_calllog_outgoing_nomal
+com.adouming.quickdial.R$drawable: int ic_checkbox_checked
+com.adouming.quickdial.R$drawable: int ic_checkbox_unchecked
+com.adouming.quickdial.R$drawable: int ic_launcher
+com.adouming.quickdial.R$drawable: int icon
+com.adouming.quickdial.R$drawable: int incoming
+com.adouming.quickdial.R$drawable: int incoming_off
+com.adouming.quickdial.R$drawable: int incoming_pressed
+com.adouming.quickdial.R$drawable: int item_bg_whilt
+com.adouming.quickdial.R$drawable: int main_tab_anim_light
+com.adouming.quickdial.R$drawable: int main_tab_bg
+com.adouming.quickdial.R$drawable: int menu_bg
+com.adouming.quickdial.R$drawable: int menu_fold
+com.adouming.quickdial.R$drawable: int menu_fold_ori
+com.adouming.quickdial.R$drawable: int menu_fold_sel
+com.adouming.quickdial.R$drawable: int menu_item_bg
+com.adouming.quickdial.R$drawable: int menu_item_bg_sel
+com.adouming.quickdial.R$drawable: int menu_item_bg_sel_off
+com.adouming.quickdial.R$drawable: int menu_unfold
+com.adouming.quickdial.R$drawable: int menu_unfold_ori
+com.adouming.quickdial.R$drawable: int menu_unfold_sel
+com.adouming.quickdial.R$drawable: int new_sms_btn
+com.adouming.quickdial.R$drawable: int num0_ic
+com.adouming.quickdial.R$drawable: int num0_ic1
+com.adouming.quickdial.R$drawable: int num0_ic2
+com.adouming.quickdial.R$drawable: int num1_ic
+com.adouming.quickdial.R$drawable: int num1_ic1
+com.adouming.quickdial.R$drawable: int num1_ic2
+com.adouming.quickdial.R$drawable: int num2_ic
+com.adouming.quickdial.R$drawable: int num2_ic1
+com.adouming.quickdial.R$drawable: int num2_ic2
+com.adouming.quickdial.R$drawable: int num3_ic
+com.adouming.quickdial.R$drawable: int num3_ic1
+com.adouming.quickdial.R$drawable: int num3_ic2
+com.adouming.quickdial.R$drawable: int num4_ic
+com.adouming.quickdial.R$drawable: int num4_ic1
+com.adouming.quickdial.R$drawable: int num4_ic2
+com.adouming.quickdial.R$drawable: int num5_ic
+com.adouming.quickdial.R$drawable: int num5_ic1
+com.adouming.quickdial.R$drawable: int num5_ic2
+com.adouming.quickdial.R$drawable: int num6_ic
+com.adouming.quickdial.R$drawable: int num6_ic1
+com.adouming.quickdial.R$drawable: int num6_ic2
+com.adouming.quickdial.R$drawable: int num7_ic
+com.adouming.quickdial.R$drawable: int num7_ic1
+com.adouming.quickdial.R$drawable: int num7_ic2
+com.adouming.quickdial.R$drawable: int num8_ic
+com.adouming.quickdial.R$drawable: int num8_ic1
+com.adouming.quickdial.R$drawable: int num8_ic2
+com.adouming.quickdial.R$drawable: int num9_ic
+com.adouming.quickdial.R$drawable: int num9_ic1
+com.adouming.quickdial.R$drawable: int num9_ic2
+com.adouming.quickdial.R$drawable: int outgoing
+com.adouming.quickdial.R$drawable: int outgoing_off
+com.adouming.quickdial.R$drawable: int outgoing_pressed
+com.adouming.quickdial.R$drawable: int setting_btn
+com.adouming.quickdial.R$drawable: int sms_add_contact_bg
+com.adouming.quickdial.R$drawable: int sms_add_select_contact_btn
+com.adouming.quickdial.R$drawable: int sms_edit_lxrbg
+com.adouming.quickdial.R$drawable: int sort_icon_bg_click
+com.adouming.quickdial.R$drawable: int tab_contact_normal
+com.adouming.quickdial.R$drawable: int tab_contact_selected
+com.adouming.quickdial.R$drawable: int tab_dial_normal
+com.adouming.quickdial.R$drawable: int tab_dial_selected
+com.adouming.quickdial.R$drawable: int tab_settings_normal
+com.adouming.quickdial.R$drawable: int tab_settings_selected
+com.adouming.quickdial.R$drawable: int tab_sms_normal
+com.adouming.quickdial.R$drawable: int tab_sms_selected
+com.adouming.quickdial.R$drawable: int top_bar_bg
+com.adouming.quickdial.R$drawable: int touxiang
+com.adouming.quickdial.R$drawable: int version
+com.adouming.quickdial.R$id: int acbuwa_list
+com.adouming.quickdial.R$id: int acbuwa_page
+com.adouming.quickdial.R$id: int acbuwa_topbar
+com.adouming.quickdial.R$id: int addContactBtn
+com.adouming.quickdial.R$id: int add_btn
+com.adouming.quickdial.R$id: int add_contact_ll
+com.adouming.quickdial.R$id: int alpha
+com.adouming.quickdial.R$id: int bohaopan
+com.adouming.quickdial.R$id: int bottom_ll
+com.adouming.quickdial.R$id: int btn_call
+com.adouming.quickdial.R$id: int btn_done
+com.adouming.quickdial.R$id: int btn_return
+com.adouming.quickdial.R$id: int call_btn
+com.adouming.quickdial.R$id: int call_log_list
+com.adouming.quickdial.R$id: int call_type
+com.adouming.quickdial.R$id: int carol_topbar
+com.adouming.quickdial.R$id: int check
+com.adouming.quickdial.R$id: int contact_list
+com.adouming.quickdial.R$id: int content
+com.adouming.quickdial.R$id: int count
+com.adouming.quickdial.R$id: int cursor
+com.adouming.quickdial.R$id: int date
+com.adouming.quickdial.R$id: int delete
+com.adouming.quickdial.R$id: int dialCallNormal
+com.adouming.quickdial.R$id: int dialCallPro
+com.adouming.quickdial.R$id: int dialNum0
+com.adouming.quickdial.R$id: int dialNum1
+com.adouming.quickdial.R$id: int dialNum2
+com.adouming.quickdial.R$id: int dialNum3
+com.adouming.quickdial.R$id: int dialNum4
+com.adouming.quickdial.R$id: int dialNum5
+com.adouming.quickdial.R$id: int dialNum6
+com.adouming.quickdial.R$id: int dialNum7
+com.adouming.quickdial.R$id: int dialNum8
+com.adouming.quickdial.R$id: int dialNum9
+com.adouming.quickdial.R$id: int dialj
+com.adouming.quickdial.R$id: int dialx
+com.adouming.quickdial.R$id: int duomeiti
+com.adouming.quickdial.R$id: int fasong
+com.adouming.quickdial.R$id: int fast_position
+com.adouming.quickdial.R$id: int fast_scroller
+com.adouming.quickdial.R$id: int fg
+com.adouming.quickdial.R$id: int image
+com.adouming.quickdial.R$id: int in_btn
+com.adouming.quickdial.R$id: int info
+com.adouming.quickdial.R$id: int keyboard_show
+com.adouming.quickdial.R$id: int keyboard_show_ll
+com.adouming.quickdial.R$id: int l1
+com.adouming.quickdial.R$id: int layout_bj
+com.adouming.quickdial.R$id: int list
+com.adouming.quickdial.R$id: int ll
+com.adouming.quickdial.R$id: int mScrollView
+com.adouming.quickdial.R$id: int main_activity_tab_image
+com.adouming.quickdial.R$id: int main_activity_tab_text
+com.adouming.quickdial.R$id: int menuBtn
+com.adouming.quickdial.R$id: int menuList
+com.adouming.quickdial.R$id: int menuText
+com.adouming.quickdial.R$id: int messagedetail_row_date
+com.adouming.quickdial.R$id: int messagedetail_row_text
+com.adouming.quickdial.R$id: int miss_btn
+com.adouming.quickdial.R$id: int name
+com.adouming.quickdial.R$id: int neirong
+com.adouming.quickdial.R$id: int newSms
+com.adouming.quickdial.R$id: int number
+com.adouming.quickdial.R$id: int out_btn
+com.adouming.quickdial.R$id: int phone_view
+com.adouming.quickdial.R$id: int pinyin
+com.adouming.quickdial.R$id: int qcb
+com.adouming.quickdial.R$id: int scroll_linearLayout
+com.adouming.quickdial.R$id: int setting_list
+com.adouming.quickdial.R$id: int slidingid
+com.adouming.quickdial.R$id: int tabsLayout
+com.adouming.quickdial.R$id: int time
+com.adouming.quickdial.R$id: int title
+com.adouming.quickdial.R$id: int top
+com.adouming.quickdial.R$id: int topbar_title
+com.adouming.quickdial.R$layout: int contact_home_list_item
+com.adouming.quickdial.R$layout: int home_contact_list_item
+com.adouming.quickdial.R$layout: int home_contact_page
+com.adouming.quickdial.R$layout: int home_dial_calllog_list_item
+com.adouming.quickdial.R$layout: int home_dial_page
+com.adouming.quickdial.R$layout: int home_setting_item
+com.adouming.quickdial.R$layout: int home_setting_page
+com.adouming.quickdial.R$layout: int home_sms_list_item
+com.adouming.quickdial.R$layout: int home_sms_page
+com.adouming.quickdial.R$layout: int home_t9_list_item
+com.adouming.quickdial.R$layout: int list_say_he_item
+com.adouming.quickdial.R$layout: int list_say_me_item
+com.adouming.quickdial.R$layout: int main_hometabhost
+com.adouming.quickdial.R$layout: int menu_list_item
+com.adouming.quickdial.R$layout: int menu_scroll_view
+com.adouming.quickdial.R$layout: int new_sms
+com.adouming.quickdial.R$layout: int newsms_list_item
+com.adouming.quickdial.R$layout: int scroll_view
+com.adouming.quickdial.R$layout: int select_contact_to_send_list_item
+com.adouming.quickdial.R$layout: int select_contacts_to_send
+com.adouming.quickdial.R$layout: int sms_messageboxlist
+com.adouming.quickdial.R$layout: int tab_widget_view
+com.adouming.quickdial.R$raw: int dtmf0
+com.adouming.quickdial.R$raw: int dtmf1
+com.adouming.quickdial.R$raw: int dtmf11
+com.adouming.quickdial.R$raw: int dtmf12
+com.adouming.quickdial.R$raw: int dtmf2
+com.adouming.quickdial.R$raw: int dtmf3
+com.adouming.quickdial.R$raw: int dtmf4
+com.adouming.quickdial.R$raw: int dtmf5
+com.adouming.quickdial.R$raw: int dtmf6
+com.adouming.quickdial.R$raw: int dtmf7
+com.adouming.quickdial.R$raw: int dtmf8
+com.adouming.quickdial.R$raw: int dtmf9
+com.adouming.quickdial.R$string: int app_name
+com.adouming.quickdial.R$string: int carol
+com.adouming.quickdial.R$string: int hello
+com.adouming.quickdial.R$string: int music1_summary
+com.adouming.quickdial.R$string: int music1_title
+com.adouming.quickdial.R$string: int music_summary
+com.adouming.quickdial.R$string: int music_title
+com.adouming.quickdial.R$style: int topbar_bg
+com.adouming.quickdial.R$style: int topbar_btn
+com.adouming.quickdial.R$style: int topbar_left_btn
+com.adouming.quickdial.R$style: int topbar_right_btn
+com.adouming.quickdial.R$style: int topbar_text
+com.adouming.service.PhoneReceiver
+com.adouming.service.PhoneReceiver: PhoneReceiver()
+com.adouming.service.T9Service
+com.adouming.service.T9Service: T9Service()
+com.adouming.view.HomeContactActivity
+com.adouming.view.HomeContactActivity: HomeContactActivity()
+com.adouming.view.HomeDialActivity
+com.adouming.view.HomeDialActivity: HomeDialActivity()
+com.adouming.view.HomeDialActivity: void onClick(android.view.View)
+com.adouming.view.HomeSMSActivity
+com.adouming.view.HomeSMSActivity: HomeSMSActivity()
+com.adouming.view.HomeSettintActivity
+com.adouming.view.HomeSettintActivity: HomeSettintActivity()
+com.adouming.view.HomeTabHostAcitivity
+com.adouming.view.HomeTabHostAcitivity: HomeTabHostAcitivity()
+com.adouming.view.sms.MessageBoxList
+com.adouming.view.sms.MessageBoxList: MessageBoxList()
+com.adouming.view.sms.NewSMSActivity
+com.adouming.view.sms.NewSMSActivity: NewSMSActivity()
+com.adouming.view.sms.SelectContactsToSendActivity
+com.adouming.view.sms.SelectContactsToSendActivity: SelectContactsToSendActivity()
+com.adouming.view.ui.AnimationTabHost
+com.adouming.view.ui.AnimationTabHost: AnimationTabHost(android.content.Context,android.util.AttributeSet)
+com.adouming.view.ui.AnimationTabHost: void setOpenAnimation(boolean)
+com.adouming.view.ui.AnimationTabHost: int getTabCount()
+com.adouming.view.ui.AnimationTabHost: void setCurrentTab(int)
+com.adouming.view.ui.CustomTextView
+com.adouming.view.ui.CustomTextView: CustomTextView(android.content.Context,android.util.AttributeSet)
+com.adouming.view.ui.MenuHorizontalScrollView
+com.adouming.view.ui.MenuHorizontalScrollView: MenuHorizontalScrollView(android.content.Context)
+com.adouming.view.ui.MenuHorizontalScrollView: MenuHorizontalScrollView(android.content.Context,android.util.AttributeSet)
+com.adouming.view.ui.MenuHorizontalScrollView: MenuHorizontalScrollView(android.content.Context,android.util.AttributeSet,int)
+com.adouming.view.ui.MenuHorizontalScrollView: void setMenuBtn(android.widget.Button)
+com.adouming.view.ui.QuickAlphabeticBar
+com.adouming.view.ui.QuickAlphabeticBar: QuickAlphabeticBar(android.content.Context)
+com.adouming.view.ui.QuickAlphabeticBar: QuickAlphabeticBar(android.content.Context,android.util.AttributeSet)
+com.adouming.view.ui.QuickAlphabeticBar: QuickAlphabeticBar(android.content.Context,android.util.AttributeSet,int)
+com.adouming.view.ui.QuickAlphabeticBar: void setListView(android.widget.ListView)
+com.adouming.view.ui.QuickAlphabeticBar: void setAlphaIndexer(java.util.HashMap)
+com.adouming.view.ui.QuickAlphabeticBar: void setHight(float)
+com.adouming.view.ui.SlidingLinearLayout
+com.adouming.view.ui.SlidingLinearLayout: SlidingLinearLayout(android.content.Context,android.util.AttributeSet)
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy[] values()
+com.google.gson.FieldNamingPolicy: com.google.gson.FieldNamingPolicy valueOf(java.lang.String)
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy[] values()
+com.google.gson.LongSerializationPolicy: com.google.gson.LongSerializationPolicy valueOf(java.lang.String)
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier[] values()
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier: com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier valueOf(java.lang.String)

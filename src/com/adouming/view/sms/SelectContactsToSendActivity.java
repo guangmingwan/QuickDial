@@ -12,6 +12,7 @@ import com.adouming.uitl.BaseIntentUtil;
 import com.adouming.view.adapter.SelectContactsToSendAdapter;
 import com.adouming.view.ui.QuickAlphabeticBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.database.Cursor;
@@ -56,7 +57,12 @@ public class SelectContactsToSendActivity extends Activity {
 			selectContactList = gson.fromJson(data, listRet);
 			selectMap = new HashMap<String, String>();
 			for(ContactBean cb : selectContactList){
-				selectMap.put(cb.getPhoneNum(), cb.getDisplayName());
+				String[] phones = (String[]) cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]);
+				for (String phoneNum : phones) {
+					String key = cb.getDisplayName(); 
+					selectMap.put(phoneNum, key);
+				}
+				
 			}
 		}
 
@@ -142,7 +148,7 @@ public class SelectContactsToSendActivity extends Activity {
 					
 					if(null == selectMap){
 					}else{
-						if (selectMap.containsKey(number)) {
+						if (selectMap.containsKey(name + number)) {
 							cb.setSelected(1);
 						}
 					}

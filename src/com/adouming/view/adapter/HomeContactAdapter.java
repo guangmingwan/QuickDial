@@ -18,6 +18,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
+import android.renderscript.Program.TextureType;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +27,7 @@ import android.widget.BaseAdapter;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
-public class ContactHomeAdapter extends BaseAdapter{
+public class HomeContactAdapter extends BaseAdapter{
 	
 	private LayoutInflater inflater;
 	private List<ContactBean> list;
@@ -33,7 +35,7 @@ public class ContactHomeAdapter extends BaseAdapter{
 	private String[] sections;//ÿ�����������?A,B,C,F...��
 	private Context ctx;
 	
-	public ContactHomeAdapter(Context context, List<ContactBean> list, QuickAlphabeticBar alpha) {
+	public HomeContactAdapter(Context context, List<ContactBean> list, QuickAlphabeticBar alpha) {
 		
 		this.ctx = context;
 		this.inflater = LayoutInflater.from(context);
@@ -95,9 +97,13 @@ public class ContactHomeAdapter extends BaseAdapter{
 		
 		ContactBean cb = list.get(position);
 		String name = cb.getDisplayName();
-		String number = cb.getPhoneNum();
-		holder.name.setText(name);
-		holder.number.setText(number);
+		String number = T9Adapter.implode("<br>" + System.getProperty("line.separator"),(String[]) cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]));
+
+
+		
+		holder.name.setText( name );
+		
+		holder.number.setText( Html.fromHtml(number) );
 		holder.qcb.assignContactUri(Contacts.getLookupUri(cb.getContactId(), cb.getLookUpKey()));
 		if(0 == cb.getPhotoId()){
 			holder.qcb.setImageResource(R.drawable.touxiang);

@@ -1,0 +1,393 @@
+com.adouming.bean.CallLogBean:
+    private int count
+    14:14:public int getId()
+    44:44:public int getCount()
+    47:48:public void setCount(int)
+com.adouming.bean.GroupBean:
+    private java.util.ArrayList contact
+    private int count
+    25:25:public java.util.ArrayList getContact()
+    28:29:public void setContact(java.util.ArrayList)
+    31:31:public int getCount()
+    34:35:public void setCount(int)
+com.adouming.bean.MessageBean:
+    22:22:public java.lang.String getName()
+    26:27:public void setName(java.lang.String)
+    34:35:public void setDate(java.lang.String)
+    42:43:public void setText(java.lang.String)
+    50:51:public void setLayoutID(int)
+com.adouming.bean.SMSBean:
+    33:33:public java.lang.String getRead()
+    42:43:public void setThread_id(java.lang.String)
+    48:49:public void setMsg_count(java.lang.String)
+    54:55:public void setMsg_snippet(java.lang.String)
+com.adouming.quickdial.BuildConfig
+com.adouming.quickdial.R
+com.adouming.quickdial.R$anim
+com.adouming.quickdial.R$attr
+com.adouming.quickdial.R$color
+com.adouming.quickdial.R$drawable
+com.adouming.quickdial.R$id
+com.adouming.quickdial.R$layout
+com.adouming.quickdial.R$raw
+com.adouming.quickdial.R$string
+com.adouming.quickdial.R$style
+com.adouming.service.MAsyncTask:
+    public static final int DOWNLOADING_START_MESSAGE
+    public static final int DOWNLOAD_END_MESSAGE
+com.adouming.service.T9Service:
+    private static final java.lang.String LOGTAG
+com.adouming.uitl.BaseIntentUtil:
+    public static int DEFAULT_ENTER_ANIM
+    public static int DEFAULT_EXIT_ANIM
+    16:16:public BaseIntentUtil()
+    34:35:public static void intentDIY(android.app.Activity,java.lang.Class)
+    45:46:public static void intentDIY(android.app.Activity,java.lang.Class,java.util.Map)
+    56:57:public static void intentDIY(android.app.Activity,java.lang.Class,int,int)
+    68:73:public static void intentDIY(android.app.Activity,java.lang.Class,java.util.Map,int,int)
+com.adouming.uitl.MyDateUtil
+com.adouming.uitl.RexseeSMS:
+    public static final java.lang.String CONTENT_URI_SMS
+    public static final java.lang.String CONTENT_URI_SMS_INBOX
+    public static final java.lang.String CONTENT_URI_SMS_SENT
+    public static final java.lang.String CONTENT_URI_SMS_CONVERSATIONS
+    44:50:public java.lang.String getContentUris()
+    54:54:public java.lang.String get(int)
+    57:57:public java.lang.String getUnread(int)
+    60:60:public java.lang.String getRead(int)
+    63:63:public java.lang.String getInbox(int)
+    66:66:public java.lang.String getSent(int)
+    69:69:public java.lang.String getByThread(int)
+    72:99:public java.lang.String getData(java.lang.String,int)
+com.adouming.uitl.SettingSingleTon:
+    public static final java.lang.String PREFS_NAME
+    public static final java.lang.String CALLIN_NUMBER
+com.adouming.uitl.ToPinYin:
+    14:14:public ToPinYin()
+    21:31:public static java.util.List getPinyinList(java.util.List)
+com.adouming.view.HomeDialActivity:
+    private android.content.Intent mIntent
+com.adouming.view.HomeSettingAdapter:
+    115:133:public void showInfo()
+com.adouming.view.HomeSettingAdapter$1
+com.adouming.view.HomeSettingItem:
+    public android.widget.Button button
+com.adouming.view.adapter.HomeSMSAdapter:
+    37:38:public void add(com.adouming.bean.SMSBean)
+    40:41:public void remove(int)
+com.adouming.view.adapter.NewSmsAdapter:
+    35:36:public void add(com.adouming.bean.ContactBean)
+    38:39:public void remove(int)
+com.adouming.view.adapter.SelectContactsToSendAdapter:
+    86:87:public void remove(int)
+com.adouming.view.adapter.T9Adapter:
+    42:43:public void add(com.adouming.bean.ContactBean)
+    45:46:public void remove(int)
+com.adouming.view.other.SystemScreenInfo:
+    6:6:public SystemScreenInfo()
+com.adouming.view.ui.AnimationTabHost:
+    21:21:public boolean setTabAnimation(int[])
+com.adouming.view.ui.MyViewGroup:
+    private static final int VIEW_MARGIN
+com.google.gson.Cache:
+    public abstract java.lang.Object removeElement(java.lang.Object)
+    public abstract void clear()
+    public abstract int size()
+com.google.gson.CamelCaseSeparatorNamingPolicy
+com.google.gson.CircularReferenceException:
+    private static final long serialVersionUID
+com.google.gson.CompositionFieldNamingPolicy
+com.google.gson.DefaultTypeAdapters:
+    55:883:DefaultTypeAdapters()
+com.google.gson.DefaultTypeAdapters$DefaultDateTypeAdapter:
+    250:252:DefaultTypeAdapters$DefaultDateTypeAdapter(java.lang.String)
+    254:256:DefaultTypeAdapters$DefaultDateTypeAdapter(int)
+    258:260:public DefaultTypeAdapters$DefaultDateTypeAdapter(int,int)
+com.google.gson.DefaultTypeAdapters$GregorianCalendarTypeAdapter:
+    private static final java.lang.String YEAR
+    private static final java.lang.String MONTH
+    private static final java.lang.String DAY_OF_MONTH
+    private static final java.lang.String HOUR_OF_DAY
+    private static final java.lang.String MINUTE
+    private static final java.lang.String SECOND
+com.google.gson.DelegatingJsonElementVisitor
+com.google.gson.ExposeAnnotationDeserializationExclusionStrategy
+com.google.gson.ExposeAnnotationSerializationExclusionStrategy
+com.google.gson.FieldAttributes:
+    private static final java.lang.String MAX_CACHE_PROPERTY_NAME
+    210:210:java.lang.reflect.Field getFieldObject()
+com.google.gson.FieldNamingPolicy
+com.google.gson.FieldNamingStrategy
+com.google.gson.FieldNamingStrategy2Adapter
+com.google.gson.Gson:
+    private static final java.lang.String NULL_STRING
+    static final boolean DEFAULT_JSON_NON_EXECUTABLE
+    private static final java.lang.String JSON_NON_EXECUTABLE_PREFIX
+    202:205:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
+    289:297:public void toJson(java.lang.Object,java.lang.Appendable)
+    327:329:public java.lang.String toJson(com.google.gson.JsonElement)
+    419:420:public java.lang.Object fromJson(java.io.Reader,java.lang.Class)
+    465:466:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
+com.google.gson.GsonBuilder
+com.google.gson.InnerClassExclusionStrategy
+com.google.gson.JsonArray:
+    63:64:public void addAll(com.google.gson.JsonArray)
+    70:71:void reverse()
+com.google.gson.JsonFieldNameValidator:
+    private static final java.lang.String COMMON_PATTERN
+com.google.gson.JsonObject:
+    71:71:public com.google.gson.JsonElement remove(java.lang.String)
+    82:83:public void addProperty(java.lang.String,java.lang.String)
+    104:105:public void addProperty(java.lang.String,java.lang.Boolean)
+    115:116:public void addProperty(java.lang.String,java.lang.Character)
+    149:149:public boolean has(java.lang.String)
+    174:174:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
+    184:184:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
+    194:194:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
+com.google.gson.JsonParseException:
+    static final long serialVersionUID
+com.google.gson.JsonParser:
+    40:40:public com.google.gson.JsonElement parse(java.lang.String)
+com.google.gson.JsonParserJavacc:
+    496:497:public JsonParserJavacc(java.io.InputStream)
+    499:507:public JsonParserJavacc(java.io.InputStream,java.lang.String)
+    511:512:public void ReInit(java.io.InputStream)
+    515:522:public void ReInit(java.io.InputStream,java.lang.String)
+    537:544:public void ReInit(java.io.Reader)
+    547:554:public JsonParserJavacc(com.google.gson.JsonParserJavaccTokenManager)
+    558:564:public void ReInit(com.google.gson.JsonParserJavaccTokenManager)
+    616:620:public final com.google.gson.Token getNextToken()
+    625:630:public final com.google.gson.Token getToken(int)
+    710:710:public final void enable_tracing()
+    714:714:public final void disable_tracing()
+com.google.gson.JsonParserJavaccConstants:
+    public static final int EOF
+    public static final int EXPONENT
+    public static final int DIGITS
+    public static final int NULL
+    public static final int NAN
+    public static final int INFINITY
+    public static final int BOOLEAN
+    public static final int IDENTIFIER_SANS_EXPONENT
+    public static final int IDENTIFIER_STARTS_WITH_EXPONENT
+    public static final int HEX_CHAR
+    public static final int UNICODE_CHAR
+    public static final int ESCAPE_CHAR
+    public static final int SINGLE_QUOTE_LITERAL
+    public static final int DOUBLE_QUOTE_LITERAL
+    public static final int QUOTE
+    public static final int ENDQUOTE
+    public static final int CHAR
+    public static final int CNTRL_ESC
+    public static final int HEX
+    public static final int HEX_ESC
+    public static final int DEFAULT
+    public static final int STRING_STATE
+    public static final int ESC_STATE
+    public static final int HEX_STATE
+com.google.gson.JsonParserJavaccTokenManager:
+    12:12:public void setDebugStream(java.io.PrintStream)
+    1005:1007:public JsonParserJavaccTokenManager(com.google.gson.SimpleCharStream,int)
+    1012:1016:public void ReInit(com.google.gson.SimpleCharStream)
+    1028:1030:public void ReInit(com.google.gson.SimpleCharStream,int)
+    1035:1039:public void SwitchTo(int)
+com.google.gson.JsonPrintFormatter
+com.google.gson.JsonPrintFormatter$JsonWriter
+com.google.gson.JsonPrintFormatter$PrintFormattingVisitor
+com.google.gson.JsonSerializationContext:
+    public abstract com.google.gson.JsonElement serialize(java.lang.Object)
+com.google.gson.JsonSerializationContextDefault:
+    42:45:public com.google.gson.JsonElement serialize(java.lang.Object)
+com.google.gson.JsonStreamParser
+com.google.gson.LowerCamelCaseSeparatorNamingPolicy
+com.google.gson.LowerCaseNamingPolicy
+com.google.gson.LruCache:
+    private static final long serialVersionUID
+    53:53:public java.lang.Object removeElement(java.lang.Object)
+com.google.gson.MappedObjectConstructor:
+    102:106:void register(java.lang.reflect.Type,com.google.gson.InstanceCreator)
+com.google.gson.MemoryRefStack:
+    54:54:public boolean isEmpty()
+    64:64:public com.google.gson.ObjectTypePair peek()
+com.google.gson.ModifyFirstLetterNamingPolicy
+com.google.gson.ModifyFirstLetterNamingPolicy$LetterModifier
+com.google.gson.ObjectTypePair:
+    129:129:public boolean isPreserveType()
+com.google.gson.ParameterizedTypeHandlerMap:
+    160:167:public synchronized com.google.gson.ParameterizedTypeHandlerMap copyOf()
+com.google.gson.ParseException:
+    private static final long serialVersionUID
+    57:58:public ParseException(java.lang.String)
+com.google.gson.Preconditions:
+    32:32:Preconditions()
+com.google.gson.Primitives:
+    30:30:private Primitives()
+com.google.gson.SimpleCharStream:
+    public static final boolean staticFlag
+    35:35:protected void setTabSize(int)
+    36:36:protected int getTabSize(int)
+    210:210:public int getColumn()
+    219:219:public int getLine()
+    274:275:public SimpleCharStream(java.io.Reader)
+    281:295:public void ReInit(java.io.Reader,int,int,int)
+    301:302:public void ReInit(java.io.Reader,int,int)
+    307:308:public void ReInit(java.io.Reader)
+    313:314:public SimpleCharStream(java.io.InputStream,java.lang.String,int,int,int)
+    320:321:public SimpleCharStream(java.io.InputStream,int,int,int)
+    327:328:public SimpleCharStream(java.io.InputStream,java.lang.String,int,int)
+    334:335:public SimpleCharStream(java.io.InputStream,int,int)
+    340:341:public SimpleCharStream(java.io.InputStream,java.lang.String)
+    346:347:public SimpleCharStream(java.io.InputStream)
+    353:354:public void ReInit(java.io.InputStream,java.lang.String,int,int,int)
+    360:361:public void ReInit(java.io.InputStream,int,int,int)
+    366:367:public void ReInit(java.io.InputStream,java.lang.String)
+    372:373:public void ReInit(java.io.InputStream)
+    378:379:public void ReInit(java.io.InputStream,java.lang.String,int,int)
+    384:385:public void ReInit(java.io.InputStream,int,int)
+    399:410:public char[] GetSuffix(int)
+    416:419:public void Done()
+    426:466:public void adjustBeginLineColumn(int,int)
+com.google.gson.StringUnmarshaller:
+    3:3:StringUnmarshaller()
+com.google.gson.Token:
+    private static final long serialVersionUID
+    public com.google.gson.Token specialToken
+    72:72:public java.lang.Object getValue()
+    85:86:public Token(int)
+    127:127:public static com.google.gson.Token newToken(int)
+com.google.gson.TokenMgrError:
+    private static final long serialVersionUID
+    static final int LEXICAL_ERROR
+    static final int STATIC_LEXER_ERROR
+    static final int INVALID_LEXICAL_STATE
+    static final int LOOP_DETECTED
+com.google.gson.TypeAdapter
+com.google.gson.TypeInfo:
+    51:51:public final java.lang.Class getWrappedClass()
+    62:62:public final boolean isCollectionOrArray()
+    70:70:public final boolean isEnum()
+com.google.gson.TypeInfoFactory:
+    34:36:private TypeInfoFactory()
+com.google.gson.TypeUtils:
+    44:51:static java.lang.reflect.Type getActualTypeForFirstTypeVariable(java.lang.reflect.Type)
+    92:94:private TypeUtils()
+com.google.gson.UpperCamelCaseSeparatorNamingPolicy
+com.google.gson.UpperCaseNamingPolicy
+com.google.gson.VersionConstants
+com.google.gson.annotations.Expose
+com.google.gson.reflect.TypeToken:
+    73:76:private TypeToken(java.lang.reflect.Type)
+    79:82:private static java.lang.Object nonNull(java.lang.Object,java.lang.String)
+    100:100:static com.google.gson.reflect.TypeToken fromSuperclassTypeParameter(java.lang.Class)
+    137:137:public java.lang.Class getRawType()
+    151:151:public boolean isAssignableFrom(java.lang.Class)
+    158:175:public boolean isAssignableFrom(java.lang.reflect.Type)
+    184:184:public boolean isAssignableFrom(com.google.gson.reflect.TypeToken)
+    192:209:private static boolean isAssignableFrom(java.lang.reflect.Type,java.lang.reflect.GenericArrayType)
+    219:266:private static boolean isAssignableFrom(java.lang.reflect.Type,java.lang.reflect.ParameterizedType,java.util.Map)
+    275:285:private static boolean typeEquals(java.lang.reflect.ParameterizedType,java.lang.reflect.ParameterizedType,java.util.Map)
+    294:300:private static boolean matches(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)
+    356:356:public static com.google.gson.reflect.TypeToken get(java.lang.reflect.Type)
+    363:363:public static com.google.gson.reflect.TypeToken get(java.lang.Class)
+    45:45:synthetic TypeToken(java.lang.reflect.Type,com.google.gson.reflect.TypeToken$1)
+com.google.gson.reflect.TypeToken$1
+com.google.gson.reflect.TypeToken$SimpleTypeToken
+com.hp.hpl.sparta.BuildDocument
+com.hp.hpl.sparta.CharCircBuffer
+com.hp.hpl.sparta.DOMException
+com.hp.hpl.sparta.DefaultLog
+com.hp.hpl.sparta.DefaultParseHandler
+com.hp.hpl.sparta.Document
+com.hp.hpl.sparta.Document$Index
+com.hp.hpl.sparta.Document$Observer
+com.hp.hpl.sparta.DocumentSource
+com.hp.hpl.sparta.Element
+com.hp.hpl.sparta.EmptyEnumeration
+com.hp.hpl.sparta.EncodingMismatchException
+com.hp.hpl.sparta.Node
+com.hp.hpl.sparta.Node$1
+com.hp.hpl.sparta.NodeListWithPosition
+com.hp.hpl.sparta.ParseByteStream
+com.hp.hpl.sparta.ParseCharStream
+com.hp.hpl.sparta.ParseException
+com.hp.hpl.sparta.ParseHandler
+com.hp.hpl.sparta.ParseLog
+com.hp.hpl.sparta.ParseSource
+com.hp.hpl.sparta.Parser
+com.hp.hpl.sparta.Sparta
+com.hp.hpl.sparta.Sparta$1
+com.hp.hpl.sparta.Sparta$2
+com.hp.hpl.sparta.Sparta$Cache
+com.hp.hpl.sparta.Sparta$CacheFactory
+com.hp.hpl.sparta.Sparta$HashtableCache
+com.hp.hpl.sparta.Sparta$Internment
+com.hp.hpl.sparta.Text
+com.hp.hpl.sparta.XPathVisitor
+com.hp.hpl.sparta.XPathVisitor$1
+com.hp.hpl.sparta.XPathVisitor$BooleanStack
+com.hp.hpl.sparta.XPathVisitor$BooleanStack$Item
+com.hp.hpl.sparta.xpath.AllElementTest
+com.hp.hpl.sparta.xpath.AttrCompareExpr
+com.hp.hpl.sparta.xpath.AttrEqualsExpr
+com.hp.hpl.sparta.xpath.AttrExistsExpr
+com.hp.hpl.sparta.xpath.AttrExpr
+com.hp.hpl.sparta.xpath.AttrGreaterExpr
+com.hp.hpl.sparta.xpath.AttrLessExpr
+com.hp.hpl.sparta.xpath.AttrNotEqualsExpr
+com.hp.hpl.sparta.xpath.AttrRelationalExpr
+com.hp.hpl.sparta.xpath.AttrTest
+com.hp.hpl.sparta.xpath.BooleanExpr
+com.hp.hpl.sparta.xpath.BooleanExprVisitor
+com.hp.hpl.sparta.xpath.ElementTest
+com.hp.hpl.sparta.xpath.ExprFactory
+com.hp.hpl.sparta.xpath.NodeTest
+com.hp.hpl.sparta.xpath.NodeTestVisitor
+com.hp.hpl.sparta.xpath.ParentNodeTest
+com.hp.hpl.sparta.xpath.PositionEqualsExpr
+com.hp.hpl.sparta.xpath.SimpleStreamTokenizer
+com.hp.hpl.sparta.xpath.Step
+com.hp.hpl.sparta.xpath.TextCompareExpr
+com.hp.hpl.sparta.xpath.TextEqualsExpr
+com.hp.hpl.sparta.xpath.TextExistsExpr
+com.hp.hpl.sparta.xpath.TextNotEqualsExpr
+com.hp.hpl.sparta.xpath.TextTest
+com.hp.hpl.sparta.xpath.ThisNodeTest
+com.hp.hpl.sparta.xpath.TrueExpr
+com.hp.hpl.sparta.xpath.Visitor
+com.hp.hpl.sparta.xpath.XPath
+com.hp.hpl.sparta.xpath.XPathException
+net.sourceforge.pinyin4j.ChineseToPinyinResource$ChineseToPinyinResourceHolder:
+    private ChineseToPinyinResource$ChineseToPinyinResourceHolder()
+net.sourceforge.pinyin4j.ChineseToPinyinResource$Field
+net.sourceforge.pinyin4j.GwoyeuRomatzyhResource
+net.sourceforge.pinyin4j.GwoyeuRomatzyhResource$1
+net.sourceforge.pinyin4j.GwoyeuRomatzyhResource$GwoyeuRomatzyhSystemResourceHolder
+net.sourceforge.pinyin4j.GwoyeuRomatzyhTranslator
+net.sourceforge.pinyin4j.PinyinFormatter:
+    PinyinFormatter()
+net.sourceforge.pinyin4j.PinyinHelper:
+    public static java.lang.String[] toHanyuPinyinStringArray(char)
+    public static java.lang.String[] toTongyongPinyinStringArray(char)
+    public static java.lang.String[] toWadeGilesPinyinStringArray(char)
+    public static java.lang.String[] toMPS2PinyinStringArray(char)
+    public static java.lang.String[] toYalePinyinStringArray(char)
+    private static java.lang.String[] convertToTargetPinyinStringArray(char,net.sourceforge.pinyin4j.PinyinRomanizationType)
+    public static java.lang.String[] toGwoyeuRomatzyhStringArray(char)
+    private static java.lang.String[] convertToGwoyeuRomatzyhStringArray(char)
+    public static java.lang.String toHanyuPinyinString(java.lang.String,net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat,java.lang.String)
+    private static java.lang.String getFirstHanyuPinyinString(char,net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat)
+    private PinyinHelper()
+net.sourceforge.pinyin4j.PinyinRomanizationResource
+net.sourceforge.pinyin4j.PinyinRomanizationResource$1
+net.sourceforge.pinyin4j.PinyinRomanizationResource$PinyinRomanizationSystemResourceHolder
+net.sourceforge.pinyin4j.PinyinRomanizationTranslator
+net.sourceforge.pinyin4j.PinyinRomanizationType
+net.sourceforge.pinyin4j.TextHelper
+net.sourceforge.pinyin4j.format.HanyuPinyinCaseType:
+    public java.lang.String getName()
+net.sourceforge.pinyin4j.format.HanyuPinyinToneType:
+    public java.lang.String getName()
+net.sourceforge.pinyin4j.format.HanyuPinyinVCharType:
+    public java.lang.String getName()
+net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination:
+    private static final long serialVersionUID

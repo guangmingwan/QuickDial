@@ -45,7 +45,7 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 		list.remove(position);
 	}
 	public int getCount() {  
-		return list.size();     
+		return list != null ? list.size() : -1;     
 	}            
 	public ContactBean getItem(int position) {    
 		return list.get(position);     
@@ -53,6 +53,19 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 	public long getItemId(int position) {
 		return 0;   
 	}           
+	 
+	 public static String implode(String separator, String[] data) {
+	     StringBuilder sb = new StringBuilder();
+	     for (int i = 0; i < data.length - 1; i++) {
+	     //data.length - 1 => to not add separator at the end
+	         if (!data[i].matches(" *")) {//empty string are ""; " "; "  "; and so on
+	             sb.append(data[i]);
+	             sb.append(separator);
+	         }
+	     }
+	     sb.append(data[data.length - 1]);
+	     return sb.toString();
+	 }
 	public View getView(int position, View convertView, ViewGroup parent) {   
 
 		ViewHolder holder = null;
@@ -68,13 +81,15 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 
 		holder.name.setText(list.get(position).getDisplayName());
 		String formattedNumber = list.get(position).getPinyin();
-
+		String[] phones = (String[])list.get(position).getPhoneNum().toArray(new String[list.get(position).getPhoneNum().size()]);
+		String impPhoneNum = implode(",", phones);
 		if (null == filterNum || "".equals(filterNum)) {
 //			holder.pinyin.setVisibility(View.INVISIBLE);
-			holder.number.setText(list.get(position).getPhoneNum());
+			
+			holder.number.setText(impPhoneNum);
 		} else {
 //			holder.pinyin.setVisibility(View.VISIBLE);
-			holder.number.setText(Html.fromHtml(list.get(position).getPhoneNum().replace(filterNum, "<font color='#cc0000'>" + filterNum + "</font>")));
+			holder.number.setText(Html.fromHtml(impPhoneNum.replace(filterNum, "<font color='#6c8a20'>" + filterNum + "</font>")));
 			if (!TextUtils.isEmpty(filterNum)) {
 				for (int i = 0; i < filterNum.length(); i++) {
 					char c = filterNum.charAt(i);
@@ -84,7 +99,7 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 							for (char c1 : zms) {
 								formattedNumber = formattedNumber.replaceAll(String.valueOf(c1).toUpperCase(), "%%" + String.valueOf(c1).toUpperCase() + "@@");
 							}
-							formattedNumber = formattedNumber.replaceAll("%%", "<font color='#cc0000'>");
+							formattedNumber = formattedNumber.replaceAll("%%", "<font color='#6c8a20'>");
 							formattedNumber = formattedNumber.replaceAll("@@", "</font>");
 						}
 					}
@@ -94,7 +109,12 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 		}
 
 		convertView.setTag(holder);
-		addViewListener(convertView , (String)list.get(position).getPhoneNum(), position);
+		ContactBean cb = (ContactBean)list.get(position);
+		String[] PhoneNums = (String[])cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]);
+		for (String phoneNum : PhoneNums) {
+			addViewListener(convertView , phoneNum, position);
+		}
+		
 		return convertView;
 	}   
 	private void addViewListener(View view, final String phoneNum, final int position){
@@ -169,9 +189,13 @@ public class T9Adapter extends BaseAdapter implements Filterable {
 				ArrayList<ContactBean> contactList = new ArrayList<ContactBean>();
 				if (allContactList != null && allContactList.size() != 0) {
 					for(ContactBean cb : allContactList){
-						if(cb.getFormattedNumber().indexOf(str)>=0 || cb.getPhoneNum().indexOf(str)>-1){
-							contactList.add(cb);
+						String[] phones = (String[])cb.getPhoneNum().toArray(new String[cb.getPhoneNum().size()]);
+						for (String phonenumber : phones) {
+							if(cb.getFormattedNumber().indexOf(str)>=0 || phonenumber.indexOf(str)>-1){
+								contactList.add(cb);
+							}
 						}
+						
 					}
 				}
 				results.values = contactList;

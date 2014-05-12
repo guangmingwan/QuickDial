@@ -1,10 +1,14 @@
 package com.adouming.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import com.adouming.bean.ContactBean;
 import com.adouming.uitl.ToPinYin;
+import com.adouming.view.adapter.T9Adapter;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -42,22 +46,33 @@ public class MAsyncTask extends AsyncTask<Cursor, Void, ArrayList<ContactBean>>{
 		if (cursor != null && cursor.getCount() > 0) {
 			try {
 				cursor.moveToFirst();
+				Map<Integer, ContactBean> contactIdMap = new HashMap<Integer, ContactBean>();
 				for (int i = 0; i < cursor.getCount(); i++) {
 					cursor.moveToPosition(i);
 					String name = cursor.getString(1);
 					String number = cursor.getString(2);
 					number = number.replace(" ", "");
 					int contactId = cursor.getInt(4);
-					ContactBean contactInfo = new ContactBean();
-					contactInfo.setContactId(contactId);
-					contactInfo.setPhoneNum(number);
-					contactInfo.setDisplayName(name);
-					if (contactInfo.getDisplayName() == null) {
-						contactInfo.setDisplayName(contactInfo.getPhoneNum());
+					ContactBean contactInfo;
+					if (!contactIdMap.containsKey(contactId)) {
+						contactInfo = new ContactBean();
+						contactInfo.setContactId(contactId);
+						contactInfo.setDisplayName(name);
+						if (contactInfo.getDisplayName() == null) {
+							contactInfo.setDisplayName( number );
+						}
+						contactInfo.setFormattedNumber(getNameNum(contactInfo.getDisplayName() + ""));
+						contactInfo.setPinyin(ToPinYin.getPinYin(contactInfo.getDisplayName() + ""));
+						ciList.add(contactInfo);
+						contactIdMap.put(contactId, contactInfo);
 					}
-					contactInfo.setFormattedNumber(getNameNum(contactInfo.getDisplayName() + ""));
-					contactInfo.setPinyin(ToPinYin.getPinYin(contactInfo.getDisplayName() + ""));
-					ciList.add(contactInfo);
+					else
+					{
+						contactInfo = contactIdMap.get(contactId);
+					}
+	 				
+					contactInfo.setPhoneNum(number);
+					 
 				}
 			} catch (BadHanyuPinyinOutputFormatCombination e) {
 				e.printStackTrace();

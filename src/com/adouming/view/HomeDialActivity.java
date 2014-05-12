@@ -316,7 +316,7 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 		protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
 			if (cursor != null && cursor.getCount() > 0) {
 				list = new ArrayList<CallLogBean>();
-				SimpleDateFormat sfd = new SimpleDateFormat("MM-dd hh:mm");
+				SimpleDateFormat sfd = new SimpleDateFormat("MM-dd hh:mm:ss");
 				Date date;
 				cursor.moveToFirst();
 				for (int i = 0; i < cursor.getCount(); i++) {
@@ -477,11 +477,12 @@ public class HomeDialActivity extends Activity implements OnClickListener {
 		}
 	}
 	private void play(int id) {
-		int max = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-		int current = am.getStreamVolume(AudioManager.STREAM_MUSIC);
-
-		float value = (float)0.7 / max * current;
-		spool.setVolume(spool.play(id, value, value, 0, 0, 1f), value, value);
+		return;
+//		int max = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+//		int current = am.getStreamVolume(AudioManager.STREAM_MUSIC);
+//
+//		float value = (float)0.7 / max * current;
+//		spool.setVolume(spool.play(id, value, value, 0, 0, 1f), value, value);
 	}
 	private void input(String str) {
 		String p = phone_view.getText().toString();

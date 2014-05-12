@@ -1,10 +1,12 @@
 package com.adouming.bean;
 
+import java.util.ArrayList;
+
 public class ContactBean {
 
 	private int contactId;
 	private String displayName;
-	private String phoneNum;
+	private ArrayList phoneNum;
 	private String sortKey;
 	private Long photoId;
 	private String lookUpKey;
@@ -24,11 +26,15 @@ public class ContactBean {
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
-	public String getPhoneNum() {
+	public ArrayList getPhoneNum() {
 		return phoneNum;
 	}
 	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
+		if(this.phoneNum == null) {
+			this.phoneNum = new ArrayList();
+		}
+		 
+		this.phoneNum.add( phoneNum );
 	}
 	public String getSortKey() {
 		return sortKey;

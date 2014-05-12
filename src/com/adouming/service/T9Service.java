@@ -84,15 +84,16 @@ public class T9Service extends Service {
 					Bundle bundle1 = msg.getData();
 					ArrayList<ContactBean> list = (ArrayList<ContactBean>) bundle1.get("完成");
 					MyApplication ma = (MyApplication)getApplication();
-					System.out.println(list.size());
+					System.out.println("t9 finish size:" + list.size());
 					ma.setContactBeanList(list);
-//					for(ContactInfo ci : list){
-//						System.out.println(ci.getName());
-//						System.out.println(ci.getPhoneNum());
-//						System.out.println(ci.getFormattedNumber());
-//						System.out.println(ci.getPinyin());
-//						System.out.println("--------------------------------");
-//					}
+					for(ContactBean ci : list){
+						System.out.println(ci.getDisplayName());
+						System.out.println(ci.getPhoneNum());
+						System.out.println(ci.getFormattedNumber());
+						System.out.println(ci.getPinyin());
+						System.out.println("--------------------------------");
+					}
+					System.out.println("end to sort out t9");
 					break;
 				default:
 					break;

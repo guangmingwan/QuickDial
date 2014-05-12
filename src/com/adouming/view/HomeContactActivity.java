@@ -11,7 +11,7 @@ import com.adouming.quickdial.R;
 import com.adouming.bean.ContactBean;
 import com.adouming.bean.GroupBean;
 import com.adouming.uitl.BaseIntentUtil;
-import com.adouming.view.adapter.ContactHomeAdapter;
+import com.adouming.view.adapter.HomeContactAdapter;
 import com.adouming.view.adapter.MenuListAdapter;
 import com.adouming.view.other.SizeCallBackForMenu;
 import com.adouming.view.sms.MessageBoxList;
@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.GroupMembership;
 import android.provider.ContactsContract.Groups;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,7 @@ public class HomeContactActivity extends Activity {
 	private LayoutInflater inflater;
 
 
-	private ContactHomeAdapter adapter;
+	private HomeContactAdapter adapter;
 	private ListView personList;
 	private List<ContactBean> list;
 	private AsyncQueryHandler asyncQuery;
@@ -179,28 +180,25 @@ public class HomeContactActivity extends Activity {
 					int contactId = cursor.getInt(4);
 					Long photoId = cursor.getLong(5);
 					String lookUpKey = cursor.getString(6);
-
-					if (contactIdMap.containsKey(contactId)) {
-						
-					}else{
-						
-						ContactBean cb = new ContactBean();
+					ContactBean cb;
+					if (!contactIdMap.containsKey(contactId)) {
+						cb = new ContactBean();
 						cb.setDisplayName(name);
-//					if (number.startsWith("+86")) {// 去除多余的中国地区号码标志，对这个程序没有影响。
-//						cb.setPhoneNum(number.substring(3));
-//					} else {
-						cb.setPhoneNum(number);
-//					}
 						cb.setSortKey(sortKey);
 						cb.setContactId(contactId);
 						cb.setPhotoId(photoId);
 						cb.setLookUpKey(lookUpKey);
-						list.add(cb);
 						
+						list.add(cb);
 						contactIdMap.put(contactId, cb);
+					}else{
+
+						cb =  contactIdMap.get(contactId);
+						Log.i("", "found same name:" + number + "(" + name + ")" );
 						
 					}
-				}
+					cb.setPhoneNum(number);
+ 				}
 				if (list.size() > 0) {
 					setAdapter(list);
 				}
@@ -211,7 +209,7 @@ public class HomeContactActivity extends Activity {
 
 
 	private void setAdapter(List<ContactBean> list) {
-		adapter = new ContactHomeAdapter(this, list, alpha);
+		adapter = new HomeContactAdapter(this, list, alpha);
 		personList.setAdapter(adapter);
 		alpha.init(HomeContactActivity.this);
 		alpha.setListView(personList);
@@ -220,16 +218,49 @@ public class HomeContactActivity extends Activity {
 		personList.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				ContactBean cb = (ContactBean) adapter.getItem(position);
-				showContactDialog(lianxiren1, cb, position);
+				 
+				showContactDialog(lianxiren1, cb, position, 0);
+				 
 			}
 		});
 	}
 
+	private void showSelectPhoneNum(final ContactBean cb, final int position, final int whichMod)
+	{
+		phoneNumbs = cb.getPhoneNum();
+		new AlertDialog.Builder(this).setTitle(cb.getDisplayName()).setItems(
+				(String[])phoneNumbs.toArray(new String[phoneNumbs.size()]),
+				new DialogInterface.OnClickListener(){
+			public void onClick(DialogInterface dialog, int whichNum){
 
+				Uri uri = null;
+				Context ctx = getApplicationContext();
+				switch(whichMod){
+					case 0://快拨模式打电话
+					  
+						String phoneNum = (String)phoneNumbs.get(whichNum);
+						String toProPhone = phoneNum;
+						intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_PRO);
+				        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toProPhone);
+				        
+				        ctx.sendBroadcast(intent);
+				        
+						break;
+					case 1://直接打电话
+						String toNormalPhone = (String)phoneNumbs.get(whichNum);
+						intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
+				        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toNormalPhone); 
+				        ctx.sendBroadcast(intent);
+						break; 
+				}
+			}
+		}).show();
+	}
+	private ArrayList phoneNumbs = new ArrayList();
 	private String[] lianxiren1 = new String[] { "使用“快拨”通话", "直接拨打电话", "发送短信", "查看详细","移动分组","移出群组","删除" };
 
 	//群组联系人弹出页
-	private void showContactDialog(final String[] arg ,final ContactBean cb, final int position){
+	private void showContactDialog(final String[] arg ,final ContactBean cb, final int position , final int which){
 		new AlertDialog.Builder(this).setTitle(cb.getDisplayName()).setItems(arg,
 				new DialogInterface.OnClickListener(){
 			public void onClick(DialogInterface dialog, int which){
@@ -238,26 +269,18 @@ public class HomeContactActivity extends Activity {
 				Context ctx = getApplicationContext();
 				switch(which){
 				case 0://快拨模式打电话
-					String toProPhone = cb.getPhoneNum();
-					intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_PRO);
-    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toProPhone);
-    		        
-    		        ctx.sendBroadcast(intent);
-    		        
-					break;
-				case 1://直接打电话
-					String toNormalPhone = cb.getPhoneNum();
-					intent.putExtra(HomeDialActivity.BR_ACION, HomeDialActivity.BR_DIAL_NORMAL);
-    		        intent.putExtra(HomeDialActivity.BR_PAYLOAD, toNormalPhone); 
-    		        ctx.sendBroadcast(intent);
+				case 1:
+					showSelectPhoneNum(cb, position,  which);
+					 
 					break;
 
 				case 2://发短息
 
-					String threadId = getSMSThreadId(cb.getPhoneNum());
+					
+					String threadId = getSMSThreadId((String)phoneNumbs.get(which));
 					
 					Map<String, String> map = new HashMap<String, String>();
-					map.put("phoneNumber", cb.getPhoneNum());
+					map.put("phoneNumber", (String)phoneNumbs.get(which));
 					map.put("threadId", threadId);
 					BaseIntentUtil.intentSysDefault(HomeContactActivity.this, MessageBoxList.class, map);
 					break;
