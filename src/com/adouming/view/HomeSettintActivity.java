@@ -25,9 +25,9 @@ public class HomeSettintActivity extends Activity {
 public ListView listview;	
  	public static String TAG = "homesetting";
  	private Intent intent = new Intent("com.adouming.refreshcalllog.RECEIVER");
- 	public static String TEL_CALLIN = "844604";
+ 	public static String TEL_CALLIN = "844502";
  	public static String TEL_CUSTOMSERVICE = "18613016788";
- 	public static String TEL_ACCOUNTCHECK = "66680123";
+ 	public static String TEL_ACCOUNTCHECK = "66634443";
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
